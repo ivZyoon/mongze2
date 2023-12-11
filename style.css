@@ -1,0 +1,27 @@
+.main_slide_area {font-size: 22px; padding:0 30px; font-family: 'Pretendard','Noto Sans KR',sans-serif; position: relative;}
+.main_slide_area .main_slide_title {text-align:center; font-size: 1.5em; font-weight: 500; margin: 30px 0;}
+.main_slide_area .main_hashtag {font-size: 1em; display: flex; align-items: center; gap: 20px; justify-content: center; margin-bottom: 50px;}
+.main_slide_area .main_hashtag span {position: relative; cursor: pointer; display: block;}
+.main_slide_area .main_hashtag span.active::after {content: ""; display: block; width:100%; height: 15px; background-color: #F7E8EA; position: absolute; bottom: -5px; z-index: -999;}
+
+/* 버튼류 overflow:hidden으로 감춰지는 거 방지 */
+.swiper-container {width:100%;  position: static !important}
+.swiper-box {position: relative;}
+
+.swiper-container .swiper-wrapper .main_banner_item {display: block; position: relative;}
+.swiper-container .swiper-wrapper .main_banner_item.displaynone {display: none;}
+.swiper-container .swiper-wrapper .main_banner_item .banner_img img {width: 100%; border-radius: 15px;}
+.swiper-container .swiper-wrapper .main_banner_item .banner_title {position: absolute; bottom: 20px; left: 20px; font-size: 1em; color:#fff;}
+
+.swiper-container .swiper-pagination {margin-top: 50px !important; position:relative; font-size: 0.8em; bottom: auto;}
+.swiper-container .swiper-pagination .swiper-pagination-current {font-weight: 600;}
+
+
+.swiper-container [class^="swiper-button-"] {color:#999; position: absolute; top: calc(((100% + 30px) - 71px)*0.5); width: 20px; height: 20px; transform: translateY(-50%); border: 1px solid #EAEAEA; background: rgba(255,255,255,0.7) ; padding: 20px 20px; }
+.swiper-container [class^="swiper-button-"]::after {font-size: 25px;}
+.swiper-container .swiper-button-prev { left: -30px; }
+.swiper-container .swiper-button-next { right: -30px;}
+[class^="swiper-button-"].swiper-button-disabled {pointer-events: auto !important;} /* 스와이퍼 디폴트값이 none이라, 첫번째 슬라이드 눌리게 되는 이슈 방지(아마 보람님께서 말씀하셨던 왼쪽 버튼 누르면 링크 이동한다고 하신게 이것 때문 같아요) */
+
+.main_slide_area .main_area_moreInfo { display: flex; text-decoration: none; border: solid 1px #e0e0e0; border-radius : 5px; background: #fff; position: absolute; padding: 10px 20px; top: 60px; right: 30px; text-align: center; font-size: 0.6em; align-items : center; gap: 5px;}
+.main_slide_area .main_area_moreInfo::after {content: ""; display: inline-block; width: 8px; height: 10px; background: url(/assignment/kjy/moreInfo.svg) 50% 50%/ contain no-repeat}
