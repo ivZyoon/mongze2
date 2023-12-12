@@ -7,31 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-<div class="main_slide_area">
-    <h2 class="main_slide_title">고객님을 위한 숙면 가이드</h2>
-    <p class="main_hashtag">
-        <span class="active">#전체</span>
-        <span></span>
-        <span></span>
-        <span></span>
-    </p>
-    <div class="swiper-box">
-        <div class="swiper swiper-container">
-
-            <div df-banner-code="kjy-test-banner" hidden class="swiper-wrapper">
-                <a href="{#href}" target="{#target}" df-banner-clone class="swiper-slide main_banner_item">
-                    <span class="banner_img">{#item}</span>
-                    <span class="banner_title">{#title}</span>
-                </a>
+    <div class="main_slide_area">
+        <h2 class="main_slide_title">고객님을 위한 숙면 가이드</h2>
+        <p class="main_hashtag">
+            <span class="active">#전체</span>
+        </p>
+        <div class="swiper-box main_banner_box">
+            <div class="swiper swiper-container main_banner_container">
+    
+                <div df-banner-code="kjy-test-banner" hidden class="swiper-wrapper main_banner_wrapper">
+                    <a href="{#href}" target="{#target}" df-banner-clone class="swiper-slide main_banner_item">
+                        <span class="banner_img">{#item}</span>
+                        <span class="banner_title">{#title}</span>
+                    </a>
+                </div>
             </div>
-
-            <div class="swiper-pagination"></div>
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="main_banner_pagination swiper-pagination"></div>
+    
+            <div class="main_banner_btn_prev swiper-button-prev"></div>
+            <div class="main_banner_btn_next swiper-button-next "></div>
         </div>
     </div>
-    <a href="#" target="_blank" class="main_area_moreInfo">더 많은 정보 보러가기</a>
-</div>
+    
 </body>
 </html>
