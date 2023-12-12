@@ -1,8 +1,10 @@
-.main_slide_area {font-size: 22px; padding:0 30px; font-family: 'Pretendard','Noto Sans KR',sans-serif; position: relative;}
+:root {--main-button-width: 60px; --main-button-height: 60px;}
+
+.main_slide_area {font-size: 22px; padding:0 30px; font-family: 'Pretendard','Noto Sans KR',sans-serif; position: relative; padding-bottom: 100px;}
 .main_slide_area .main_slide_title {text-align:center; font-size: 34px; font-weight: 500; margin: 30px 0;}
 .main_slide_area .main_hashtag {font-size: 22px; display: flex; align-items: center; gap: 20px; justify-content: center; margin-bottom: 50px;}
-.main_slide_area .main_hashtag span {position: relative; cursor: pointer; display: block;}
-.main_slide_area .main_hashtag span.active::after {content: ""; display: block; width:100%; height: 15px; background-color: #F7E8EA; position: absolute; bottom: -5px; z-index: -999;}
+.main_slide_area .main_hashtag li {position: relative; cursor: pointer; display: block;}
+.main_slide_area .main_hashtag li.active::after {content: ""; display: block; width:100%; height: 15px; background-color: #F7E8EA; position: absolute; bottom: -5px; z-index: -999;}
 
 .main_slide_area .main_banner_container .main_banner_wrapper a:first-of-type {display: none;} /*해시태그 가져오기용 첫번째 배너 숨기기*/
 .main_slide_area .main_banner_container .main_banner_wrapper .main_banner_item {display: block; position: relative;}
@@ -10,12 +12,12 @@
 .main_slide_area .main_banner_container .main_banner_wrapper .main_banner_item .banner_img img {width: 100%; border-radius: 15px;}
 .main_slide_area .main_banner_container .main_banner_wrapper .main_banner_item .banner_title {position: absolute; bottom: 20px; left: 20px; font-size: 22px; color:#fff;}
 
-.main_slide_area .main_banner_box .main_banner_pagination {margin-top: 50px; position:relative; font-size: 18px; bottom: auto;}
+.main_slide_area .main_banner_box .main_banner_pagination {margin-top: 50px; position: absolute; font-size: 18px; bottom: auto;}
 .main_slide_area .main_banner_box .main_banner_pagination .swiper-pagination-current {font-weight: 600;}
 
 .main_slide_area .main_banner_box {position: relative;}
-.main_slide_area .main_banner_box [class^="main_banner_btn_"] {color:#999; position: absolute; top: calc(((100% + 30px) - 71px)*0.5); width: 20px; height: 20px; transform: translateY(-50%); border: 1px solid #EAEAEA; background: rgba(255,255,255,0.7) ; padding: 20px 20px; }
+.main_slide_area .main_banner_box [class^="main_banner_btn_"] {color:#999; position: absolute; top: 50%; width: var(--main-button-width); height: var(--main-button-height); transform: translateY(-50%); border: 1px solid #EAEAEA; background: rgba(255,255,255,0.7) ; }
 .main_slide_area .main_banner_box [class^="main_banner_btn_"]::after {font-size: 25px;}
-.main_slide_area .main_banner_box .main_banner_btn_prev { left: -30px; }
-.main_slide_area .main_banner_box .main_banner_btn_next { right: -30px;}
+.main_slide_area .main_banner_box .main_banner_btn_prev { left: calc(-1 * var(--main-button-width) / 2); }
+.main_slide_area .main_banner_box .main_banner_btn_next { right: calc(-1 * var(--main-button-width) / 2); }
 .main_slide_area [class^="main_banner_btn_"].swiper-button-disabled {pointer-events: auto !important;} /* 스와이퍼 디폴트값이 none이라, 첫번째 슬라이드 눌리게 되는 이슈 방지(아마 보람님께서 말씀하셨던 왼쪽 버튼 누르면 링크 이동한다고 하신게 이것 때문 같아요) */
