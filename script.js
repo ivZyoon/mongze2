@@ -39,21 +39,18 @@ $(document).ready(function(){
         $(this).closest('a.main_banner_item').attr('data-hashtag', bannerTitleSplit[1]); // 배너 타이틀에서 $를 기준으로 잘라낸 해시태그 부분 data-hashtag로 부여
 
         splitArray.push(bannerTitleSplit[1]); // 해시태그부분만 잘라서 새 배열(splitArray) 만들기
+    });    
+
+    splitArray = splitArray.join('').split('#'); // 해시태그가 담긴 배열을 문자열로 반환한 뒤(배너 1개에 해시태그 2개인 경우 때문), 다시 # 기준 split 해서 배열 수정
+
+    splitArray = splitArray.filter(function(item){ // 배열 내 빈 값 모두 제거
+        return !!item
     });
+    splitArray = splitArray.filter((v, i) => splitArray.indexOf(v) === i); // 배열 내 중복 값 제거
 
-    var newSplitArray = splitArray.join('').split('#'); // 해시태그가 담긴 배열을 문자열로 반환한 뒤(배너 1개에 해시태그 2개인 경우 때문), 다시 # 기준 split 해서 배열만들기
-
-    newSplitArray = newSplitArray.filter(function(item){
-        return item !== null && item !== undefined && item !== ''; // 배열 내 빈 값 모두 제거
-    });
-
-    newSplitArray = newSplitArray.filter((v, i) => newSplitArray.indexOf(v) === i); // 배열 내 중복 값 제거
-
-    $.each(newSplitArray, function(index, value){
+    $.each(splitArray, function(index, value){
         $('.main_hashtag').append($('<li>' + '#' + value + '</li>')); // .main_hashtag의 자식으로 해시태그 내용들 li로 추가
     });
-
-
 
 
     /*
@@ -66,12 +63,13 @@ $(document).ready(function(){
         $('.main_hashtag li').removeClass('active');
         $(this).addClass('active'); // 핑크 하이라이트 넣기
 
-        $('a.main_banner_item').removeClass('displaynone');
-        $('a.main_banner_item').not("[data-hashtag*='" + hashtagName + "']").addClass('displaynone'); //클릭한 해시태그 값과 data-hashtag 값이 일치하지 않으면 숨기기
 
-        if(hashtagName == "#전체"){
-            $('a.main_banner_item').removeClass('displaynone'); // 전체태그에서는 모든 슬라이드 보여주기
-        }
+        hashtagName === "#전체"
+		? $('a.main_banner_item').removeClass('displaynone') // #전체 일 때 전부 보이기
+        : (
+            $('a.main_banner_item').removeClass('displaynone'), 
+            $('a.main_banner_item').not('[data-hashtag*="' + hashtagName + '"]').addClass('displaynone')  //클릭한 해시태그 값과 data-hashtag 값이 일치하지 않으면 숨기기  
+        );    
 
         mainSlideSwiper.update(); // 메인 슬라이드의 스와이퍼 초기화
     });
